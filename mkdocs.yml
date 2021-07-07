@@ -19,14 +19,16 @@ nav:
     - classes/01-ExampleClass/index.md
   - Laboratories:
     - labs/01-ExampleLab/index.md
-    - labs/02-DcMotor/index.md
-    
+    - labs/02-DCMotor/index.md
 
 extra_javascript:
-  - https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js
   - js/markdown-enhancer.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML
+  - https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js
+
 
 markdown_extensions:
+  - pymdownx.arithmatex
   - markdown.extensions.admonition
   - pymdownx.tasklist:
       custom_checkbox: true
