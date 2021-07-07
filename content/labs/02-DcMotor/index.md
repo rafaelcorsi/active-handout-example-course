@@ -2,11 +2,14 @@
 
 Lesson Learning Objectives:
 
-- Understand and explain, using the Lorentz force equation, the working principle of a direct current motor.
-- Understand and explain, using Faraday's law of induction, the working principle of a direct current generator.
-- Understand and explain, using electrical and mechanical power equations, the principle of energy conservation in a DC motor/generator set.
+- [x] Understand and explain, using the Lorentz force equation, the working principle of a direct current motor.
+- [x] Understand and explain, using Faraday's law of induction, the working principle of a direct current generator.
+- [x] Understand and explain, using electrical and mechanical power equations, the principle of energy conservation in a DC motor/generator set.
 
 ## Conceptual Basis of the Electric Motor
+
+!!! video
+    ![](https://www.youtube.com/watch?v=nRDVm5rn_2A)
 
 In theoretical classes, we learned that an electrical charge in motion, immersed in an electromagnetic field, is subject to a force called Lorentz force, whose equation is given by:
 
@@ -23,15 +26,19 @@ Consider a winding of conducting wire covered by an electric current, immersed i
 
 The winding would rotate clockwise, right? This is the working principle of an electric motor. In the illustration below, we show the same winding rotated, in the figure on the left, by 90° to the starting position and, in the right, by 180° to the starting position. Mark the forces acting at points A and C in both figures. Based on the questions, write your conclusions in the space below.
 
-!!! question short
-    1. Do forces apply torque in this position?
-    1. What's the problem with keeping the current flowing in this case?
+!!! question choice
+    Considering the image below, select the correct answer.
     
-    ![](fig2.png)
+    ![](fig2.png)    
+    
+    - [x] There is torque in this position
+    - [ ] There is **no** torque in this position
     
     Answer below:
     !!! details
-        Explanation goes here...
+        In the future we will add a tool that will allow the student to draw on a figure:
+        
+        - https://github.com/insper-education/active-handout/issues/7
 
 !!! question short
     1. Is the applied torque in the same direction as the angular speed of the motor?

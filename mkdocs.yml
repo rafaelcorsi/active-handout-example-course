@@ -19,7 +19,7 @@ nav:
     - classes/01-ExampleClass/index.md
   - Laboratories:
     - labs/01-ExampleLab/index.md
-    - labs/02-DCMotor/index.md
+    - labs/02-DcMotor/index.md
 
 extra_javascript:
   - js/markdown-enhancer.js
