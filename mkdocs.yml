@@ -19,7 +19,6 @@ nav:
     - classes/01-ExampleClass/index.md
   - Laboratories:
     - labs/01-ExampleLab/index.md
-    - labs/02-DcMotor/index.md
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js
