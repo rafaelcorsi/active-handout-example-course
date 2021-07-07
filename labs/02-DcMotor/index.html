@@ -1,0 +1,588 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://insper-education.github.io/active-handout-example-course/labs/02-DcMotor/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>Lab 2 - Direct Current Motor and Generator - Example course</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-2-direct-current-motor-and-generator" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Example course" class="md-header__button md-logo" aria-label="Example course" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Example course
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 2 - Direct Current Motor and Generator
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/insper-education/active-handout-example-course/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    active-handout-example-course
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Example course" class="md-nav__button md-logo" aria-label="Example course" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Example course
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/insper-education/active-handout-example-course/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    active-handout-example-course
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Classes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Classes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Classes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../classes/01-ExampleClass/" class="md-nav__link">
+        Example Class page
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Laboratories
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Laboratories" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Laboratories
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ExampleLab/" class="md-nav__link">
+        Example Lab page
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Lab 2 - Direct Current Motor and Generator
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Lab 2 - Direct Current Motor and Generator
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conceptual-basis-of-the-electric-motor" class="md-nav__link">
+    Conceptual Basis of the Electric Motor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiment" class="md-nav__link">
+    Experiment
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conceptual-basis-of-the-electric-motor" class="md-nav__link">
+    Conceptual Basis of the Electric Motor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiment" class="md-nav__link">
+    Experiment
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/insper-education/active-handout-example-course/edit/main/content/labs/02-DcMotor/index.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="lab-2-direct-current-motor-and-generator">Lab 2 - Direct Current Motor and Generator</h1>
+<p>Lesson Learning Objectives:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Understand and explain, using the Lorentz force equation, the working principle of a direct current motor.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Understand and explain, using Faraday's law of induction, the working principle of a direct current generator.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Understand and explain, using electrical and mechanical power equations, the principle of energy conservation in a DC motor/generator set.</li>
+</ul>
+<h2 id="conceptual-basis-of-the-electric-motor">Conceptual Basis of the Electric Motor</h2>
+<div class="admonition video">
+<p class="admonition-title">Video</p>
+<p><img alt="" src="https://www.youtube.com/watch?v=nRDVm5rn_2A" /></p>
+</div>
+<p>In theoretical classes, we learned that an electrical charge in motion, immersed in an electromagnetic field, is subject to a force called Lorentz force, whose equation is given by:</p>
+<div>
+<div class="MathJax_Preview">
+\overrightarrow{F} = q . (\overrightarrow{E} + v \times B)
+</div>
+<script type="math/tex; mode=display">
+\overrightarrow{F} = q . (\overrightarrow{E} + v \times B)
+</script>
+</div>
+<p>Consider a winding of conducting wire covered by an electric current, immersed in a region where there is a horizontal magnetic field to the right (produced by permanent magnets), uniform and constant in time, as shown in the figure. In the figure, mark the Lorentz force at points A, B, C and D of the winding, remembering that the electric current can be understood as the flow of positive charges along the wire. Indicate the direction of rotation of this winding around the axis.</p>
+<p><img alt="" src="fig1.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Also note the direction of touch caused by each force and the direction of angular velocity to be acquired by the winding.</p>
+</div>
+<p>The winding would rotate clockwise, right? This is the working principle of an electric motor. In the illustration below, we show the same winding rotated, in the figure on the left, by 90° to the starting position and, in the right, by 180° to the starting position. Mark the forces acting at points A and C in both figures. Based on the questions, write your conclusions in the space below.</p>
+<div class="admonition question choice">
+<p class="admonition-title">Question</p>
+<p>Considering the image below, select the correct answer.</p>
+<p><img alt="" src="fig2.png" />    </p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> There is torque in this position</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> There is <strong>no</strong> torque in this position</li>
+</ul>
+<p>Answer below:</p>
+<div class="admonition details">
+<p class="admonition-title">Details</p>
+<p>In the future we will add a tool that will allow the student to draw on a figure:</p>
+<ul>
+<li><a href="https://github.com/insper-education/active-handout/issues/7">https://github.com/insper-education/active-handout/issues/7</a></li>
+</ul>
+</div>
+</div>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<ol>
+<li>Is the applied torque in the same direction as the angular speed of the motor?</li>
+<li>In this position, what would it take to make the torque go in the direction of angular velocity?</li>
+</ol>
+<p><img alt="" src="fig3.png" /></p>
+<p>Answer below:</p>
+<div class="admonition details">
+<p class="admonition-title">Details</p>
+<p>Explanation goes here...</p>
+</div>
+</div>
+<p>You must have understood the need for us to use several windings arranged in planes with different inclinations, which can be switched on and off depending on the position. We call this set of windings “motor armature”. </p>
+<p>At this point, your teacher will give a brief demonstration of how the DC motor works.</p>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Click after your teacher's explanation.</p>
+</div>
+<h2 id="experiment">Experiment</h2>
+<p>Connect the Arduino to your laptop's USB input and, using jumpers, connect Arduino's 5V, GND and Digital Input 2 pins, respectively, to the Encoder's VCC, GND and D0 pins, as shown in the figure.</p>
+<p><img alt="" src="fig4.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Pay attention to the correct connection</p>
+</div>
+<p>Then run the following code on the arduino:</p>
+<details class="info"><summary>code</summary><div class="highlight"><pre><span></span><code><span class="c1">//Programa: Sensor de velocidade Arduino LM393</span>
+<span class="c1">//Autor: Arduino e Cia</span>
+<span class="c1">//ultima versao: Carareto 26/07/2019</span>
+
+<span class="kt">double</span> <span class="n">tempoAmostrando</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">pino_D0</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">rpm</span><span class="p">;</span>
+<span class="k">volatile</span> <span class="n">byte</span> <span class="n">pulsos</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">timeold</span><span class="p">;</span>
+
+<span class="c1">//Altere o numero abaixo de acordo com o numero de fendas do seu disco encoder</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">pulsos_por_volta</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">//funcao executada pela interrupcao</span>
+<span class="kt">void</span> <span class="nf">contador</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">//Incrementa contador toda vez que uma fenda passa pelo detector de luz</span>
+  <span class="n">pulsos</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+  <span class="c1">//Pino do sensor como entrada para detectar a interrupcao (passagem da fenda no sensor                  //de luz)</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">pino_D0</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+
+  <span class="c1">//declara a interrupcao: a cada caída de tensao (FALLING) no pino_D0, a funcao //contador será executada.</span>
+  <span class="n">attachInterrupt</span><span class="p">(</span><span class="n">digitalPinToInterrupt</span><span class="p">(</span><span class="n">pino_D0</span><span class="p">),</span> <span class="n">contador</span><span class="p">,</span> <span class="n">FALLING</span><span class="p">);</span>
+
+  <span class="n">pulsos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">rpm</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">timeold</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// a cada intervalo de tempo igual ao valor de &quot;tempoAmostrado&quot; (em milisegundos) ha um  //plot em serial do valor da toracao em rpm</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">timeold</span> <span class="o">&gt;=</span> <span class="n">tempoAmostrando</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Desabilita interrupcao durante o calculo</span>
+    <span class="n">detachInterrupt</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">rpm</span> <span class="o">=</span> <span class="p">(</span><span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">/</span> <span class="n">pulsos_por_volta</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">timeold</span><span class="p">)</span> <span class="o">*</span> <span class="n">pulsos</span><span class="p">;</span>
+    <span class="n">timeold</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+    <span class="c1">//Mostra o valor de RPM no serial monitor</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;RPM = &quot;</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">rpm</span><span class="p">,</span> <span class="n">DEC</span><span class="p">);</span>
+    <span class="n">pulsos</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="c1">//Habilita interrupcao</span>
+    <span class="n">attachInterrupt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">contador</span><span class="p">,</span> <span class="n">FALLING</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 7, 2021</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../01-ExampleLab/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Example Lab page" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Example Lab page
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+        <script src="../../js/markdown-enhancer.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
+      
+    
+  </body>
+</html>
